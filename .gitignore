@@ -1,0 +1,64 @@
+# Unity-specific
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Asset folders (uncomment if needed)
+# /[Aa]ssets/AssetStoreTools*
+# /[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Build outputs
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Generated files
+sysinfo.txt
+crashlytics-build.properties
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# IDE and editor files
+.vs/
+.gradle/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Meta files (important: do not ignore .meta files unless intended)
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# OS-specific (Windows)
+Thumbs.db
+ehthumbs.db
+
+# OS-specific (macOS)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
