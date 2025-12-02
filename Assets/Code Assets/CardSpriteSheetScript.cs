@@ -7,7 +7,25 @@ public class CardSpriteSheetScript : MonoBehaviour
     public Sprite[] CardSprites;
     public Sprite backSprite;
     Dictionary<string, Sprite> cardSpriteMap = new Dictionary<string, Sprite>();
-
+    Dictionary<int, string> cardNumToKeyMap = new Dictionary<int, string>()
+    {
+        {1, "CloverA"}, {2, "Clover2"}, {3, "Clover3"}, {4, "Clover4"},
+        {5, "Clover5"}, {6, "Clover6"}, {7, "Clover7"}, {8, "Clover8"},
+        {9, "Clover9"}, {10, "Clover10"}, {11, "CloverJ"}, {12, "CloverQ"},
+        {13, "CloverK"},
+        {14, "HeartA"}, {15, "Heart2"}, {16, "Heart3"}, {17, "Heart4"},
+        {18, "Heart5"}, {19, "Heart6"}, {20, "Heart7"}, {21, "Heart8"},
+        {22, "Heart9"}, {23, "Heart10"}, {24, "HeartJ"}, {25, "HeartQ"},
+        {26, "HeartK"},
+        {27, "DiamondA"}, {28, "Diamond2"}, {29, "Diamond3"}, {30, "Diamond4"},
+        {31, "Diamond5"}, {32, "Diamond6"}, {33, "Diamond7"}, {34, "Diamond8"},
+        {35, "Diamond9"}, {36, "Diamond10"}, {37, "DiamondJ"}, {38, "DiamondQ"},
+        {39, "DiamondK"},
+        {40, "SpadeA"}, {41, "Spade2"}, {42, "Spade3"}, {43, "Spade4"},
+        {44, "Spade5"}, {45, "Spade6"}, {46, "Spade7"}, {47, "Spade8"},
+        {48, "Spade9"}, {49, "Spade10"}, {50, "SpadeJ"}, {51, "SpadeQ"},
+        {52, "SpadeK"},
+    };
     void Start()
     {
         cardSpriteMap = new Dictionary<string, Sprite>();
@@ -77,6 +95,18 @@ public class CardSpriteSheetScript : MonoBehaviour
 
     // When coding func to get sprite by 1-52, do math on A to get its val to be 1/11,
     // and set any (x % 12) > 10 to be 10.
-
+    
+    Sprite GetCardByNum(int num)
+    {
+        // NUM MUST BE BETWEEN 1-52, OTHERWISE RETURN BACKSPRITE
+        if (num < 1 || num > 52)
+        {
+            Debug.LogWarning("Card number out of range. Returning back sprite.");
+            return backSprite;
+        }
+        string key = cardNumToKeyMap[num];
+        Sprite cardSprite = cardSpriteMap[key];
+        return cardSprite;
+    }
 
 }
