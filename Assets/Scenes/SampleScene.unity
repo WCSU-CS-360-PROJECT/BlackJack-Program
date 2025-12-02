@@ -2317,15 +2317,16 @@ MonoBehaviour:
   standBtn: {fileID: 0}
   doubleBtn: {fileID: 0}
   splitBtn: {fileID: 0}
+  insuranceBtn: {fileID: 0}
   betSlider: {fileID: 0}
   makeBetBtn: {fileID: 0}
   cashOutBtn: {fileID: 0}
   totalMonetLeftTB: {fileID: 0}
+  AmtToBetTextTB: {fileID: 0}
   betSliderValueTB: {fileID: 0}
-  makeBetAmtTB: {fileID: 0}
   yourBetTB: {fileID: 0}
   currentBetAmtTB: {fileID: 0}
-  gameStateTB: {fileID: 0}
+  gameStatusTB: {fileID: 0}
 --- !u!1 &1004096035
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,7 +3381,7 @@ GameObject:
   - component: {fileID: 1744192730}
   - component: {fileID: 1744192729}
   m_Layer: 5
-  m_Name: MakeBetAmtTB
+  m_Name: BetSliderValTB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
