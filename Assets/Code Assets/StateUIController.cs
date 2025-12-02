@@ -109,12 +109,14 @@ public class StateUIController : MonoBehaviour
         insuranceBtn.gameObject.SetActive(false);
         yourBetTB.gameObject.SetActive(false);
         currentBetAmtTB.gameObject.SetActive(false);
+        cashOutBtn.gameObject.SetActive(false);
         // ACTIVES
-        cashOutBtn.gameObject.SetActive(true);
+        gameStatusTB.gameObject.SetActive(true);
+
         // Update Game Status
-        gameStatusTB.text = "Game Over! Cash out or play again.";
+        // In this TB, condition of if player has 0, or cashed out with something.
+        gameStatusTB.text = "Game Over!";
+
+        // Make Try Again Button or View High Score button active here.
     }
-
-
-
 }
