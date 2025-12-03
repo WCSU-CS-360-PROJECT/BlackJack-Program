@@ -282,7 +282,7 @@ public class BlackjackGameController : MonoBehaviour
             return;
         }
 
-        if (playerController.Model.BBucks < insurance)
+        if (playerController.Model.BBucks < insurance+baseBet)
         {
             ui.ShowMessage("Not enough B-Bucks for insurance.");
             return;
