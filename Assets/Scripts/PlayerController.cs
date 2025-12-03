@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerModel Model { get; private set; }
 
-    public List<Hand> Hands { get; private set; } = new List<Hand>();
+    [field: SerializeField] public List<Hand> Hands { get; private set; } = new List<Hand>();
     public List<int> HandBets { get; private set; } = new List<int>();
 
     public int ActiveHandIndex { get; private set; } = 0;
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public int CurrentBet { get; private set; } = 0;
 
     /// Maximum number of hands allowed after splits
-    [SerializeField] private int maxHands = 4;
+    private int maxHands = 4;
 
     public int InsuranceBet { get; private set; } = 0;
 

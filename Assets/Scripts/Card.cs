@@ -25,7 +25,7 @@ public enum Rank
     Ace
 }
 
-[Serializable]
+[System.Serializable]
 public class Card
 {
     public Suit Suit;

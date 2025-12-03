@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DealerController : MonoBehaviour
 {
-    public Hand DealerHand { get; private set; } = new Hand();
+    [field: SerializeField] public Hand DealerHand { get; private set; } = new Hand();
 
     public void ClearHand()
     {

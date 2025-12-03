@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 
+[System.Serializable]
 public class Hand
 {
-    public List<Card> Cards { get; private set; } = new List<Card>();
+    [field: SerializeField] public List<Card> Cards { get; private set; } = new List<Card>();
 
     public void Clear()
     {
