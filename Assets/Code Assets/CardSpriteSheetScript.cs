@@ -6,107 +6,82 @@ public class CardSpriteSheetScript : MonoBehaviour
 
     public Sprite[] CardSprites;
     public Sprite backSprite;
-    Dictionary<string, Sprite> cardSpriteMap = new Dictionary<string, Sprite>();
-    Dictionary<int, string> cardNumToKeyMap = new Dictionary<int, string>()
-    {
-        {1, "CloverA"}, {2, "Clover2"}, {3, "Clover3"}, {4, "Clover4"},
-        {5, "Clover5"}, {6, "Clover6"}, {7, "Clover7"}, {8, "Clover8"},
-        {9, "Clover9"}, {10, "Clover10"}, {11, "CloverJ"}, {12, "CloverQ"},
-        {13, "CloverK"},
-        {14, "HeartA"}, {15, "Heart2"}, {16, "Heart3"}, {17, "Heart4"},
-        {18, "Heart5"}, {19, "Heart6"}, {20, "Heart7"}, {21, "Heart8"},
-        {22, "Heart9"}, {23, "Heart10"}, {24, "HeartJ"}, {25, "HeartQ"},
-        {26, "HeartK"},
-        {27, "DiamondA"}, {28, "Diamond2"}, {29, "Diamond3"}, {30, "Diamond4"},
-        {31, "Diamond5"}, {32, "Diamond6"}, {33, "Diamond7"}, {34, "Diamond8"},
-        {35, "Diamond9"}, {36, "Diamond10"}, {37, "DiamondJ"}, {38, "DiamondQ"},
-        {39, "DiamondK"},
-        {40, "SpadeA"}, {41, "Spade2"}, {42, "Spade3"}, {43, "Spade4"},
-        {44, "Spade5"}, {45, "Spade6"}, {46, "Spade7"}, {47, "Spade8"},
-        {48, "Spade9"}, {49, "Spade10"}, {50, "SpadeJ"}, {51, "SpadeQ"},
-        {52, "SpadeK"},
-    };
+    Dictionary<int, Sprite> cardSpriteMap = new Dictionary<int, Sprite>();
+
     void Start()
     {
-        cardSpriteMap = new Dictionary<string, Sprite>();
-        backSprite = Resources.Load<Sprite>("Sprites/BackCard.png");
+        backSprite = Resources.Load<Sprite>("Sprites/back");
 
-        // Setup the card sprite map
+        // Setup the card sprite map using 1-52 as keys
         // SUIT: CLOVER (C)
-        cardSpriteMap.Add("CloverA", Resources.Load<Sprite>("Sprites/WhiteCards/CA"));
-        cardSpriteMap.Add("Clover2", Resources.Load<Sprite>("Sprites/WhiteCards/C2"));
-        cardSpriteMap.Add("Clover3", Resources.Load<Sprite>("Sprites/WhiteCards/C3"));
-        cardSpriteMap.Add("Clover4", Resources.Load<Sprite>("Sprites/WhiteCards/C4"));
-        cardSpriteMap.Add("Clover5", Resources.Load<Sprite>("Sprites/WhiteCards/C5"));
-        cardSpriteMap.Add("Clover6", Resources.Load<Sprite>("Sprites/WhiteCards/C6"));
-        cardSpriteMap.Add("Clover7", Resources.Load<Sprite>("Sprites/WhiteCards/C7"));
-        cardSpriteMap.Add("Clover8", Resources.Load<Sprite>("Sprites/WhiteCards/C8"));
-        cardSpriteMap.Add("Clover9", Resources.Load<Sprite>("Sprites/WhiteCards/C9"));
-        cardSpriteMap.Add("Clover10", Resources.Load<Sprite>("Sprites/WhiteCards/C10"));
-        cardSpriteMap.Add("CloverJ", Resources.Load<Sprite>("Sprites/WhiteCards/CJ"));
-        cardSpriteMap.Add("CloverQ", Resources.Load<Sprite>("Sprites/WhiteCards/CQ"));
-        cardSpriteMap.Add("CloverK", Resources.Load<Sprite>("Sprites/WhiteCards/CK"));
-
-        // SUIT: HEART (H)
-        cardSpriteMap.Add("HeartA", Resources.Load<Sprite>("Sprites/WhiteCards/HA"));
-        cardSpriteMap.Add("Heart2", Resources.Load<Sprite>("Sprites/WhiteCards/H2"));
-        cardSpriteMap.Add("Heart3", Resources.Load<Sprite>("Sprites/WhiteCards/H3"));
-        cardSpriteMap.Add("Heart4", Resources.Load<Sprite>("Sprites/WhiteCards/H4"));
-        cardSpriteMap.Add("Heart5", Resources.Load<Sprite>("Sprites/WhiteCards/H5"));
-        cardSpriteMap.Add("Heart6", Resources.Load<Sprite>("Sprites/WhiteCards/H6"));
-        cardSpriteMap.Add("Heart7", Resources.Load<Sprite>("Sprites/WhiteCards/H7"));
-        cardSpriteMap.Add("Heart8", Resources.Load<Sprite>("Sprites/WhiteCards/H8"));
-        cardSpriteMap.Add("Heart9", Resources.Load<Sprite>("Sprites/WhiteCards/H9"));
-        cardSpriteMap.Add("Heart10", Resources.Load<Sprite>("Sprites/WhiteCards/H10"));
-        cardSpriteMap.Add("HeartJ", Resources.Load<Sprite>("Sprites/WhiteCards/HJ"));
-        cardSpriteMap.Add("HeartQ", Resources.Load<Sprite>("Sprites/WhiteCards/HQ"));
-        cardSpriteMap.Add("HeartK", Resources.Load<Sprite>("Sprites/WhiteCards/HK"));
+        cardSpriteMap[1] = Resources.Load<Sprite>("Sprites/WhiteCards/CA");
+        cardSpriteMap[2] = Resources.Load<Sprite>("Sprites/WhiteCards/C2");
+        cardSpriteMap[3] = Resources.Load<Sprite>("Sprites/WhiteCards/C3");
+        cardSpriteMap[4] = Resources.Load<Sprite>("Sprites/WhiteCards/C4");
+        cardSpriteMap[5] = Resources.Load<Sprite>("Sprites/WhiteCards/C5");
+        cardSpriteMap[6] = Resources.Load<Sprite>("Sprites/WhiteCards/C6");
+        cardSpriteMap[7] = Resources.Load<Sprite>("Sprites/WhiteCards/C7");
+        cardSpriteMap[8] = Resources.Load<Sprite>("Sprites/WhiteCards/C8");
+        cardSpriteMap[9] = Resources.Load<Sprite>("Sprites/WhiteCards/C9");
+        cardSpriteMap[10] = Resources.Load<Sprite>("Sprites/WhiteCards/C10");
+        cardSpriteMap[11] = Resources.Load<Sprite>("Sprites/WhiteCards/CJ");
+        cardSpriteMap[12] = Resources.Load<Sprite>("Sprites/WhiteCards/CQ");
+        cardSpriteMap[13] = Resources.Load<Sprite>("Sprites/WhiteCards/CK");
 
         // SUIT: DIAMOND (D)
-        cardSpriteMap.Add("DiamondA", Resources.Load<Sprite>("Sprites/WhiteCards/DA"));
-        cardSpriteMap.Add("Diamond2", Resources.Load<Sprite>("Sprites/WhiteCards/D2"));
-        cardSpriteMap.Add("Diamond3", Resources.Load<Sprite>("Sprites/WhiteCards/D3"));
-        cardSpriteMap.Add("Diamond4", Resources.Load<Sprite>("Sprites/WhiteCards/D4"));
-        cardSpriteMap.Add("Diamond5", Resources.Load<Sprite>("Sprites/WhiteCards/D5"));
-        cardSpriteMap.Add("Diamond6", Resources.Load<Sprite>("Sprites/WhiteCards/D6"));
-        cardSpriteMap.Add("Diamond7", Resources.Load<Sprite>("Sprites/WhiteCards/D7"));
-        cardSpriteMap.Add("Diamond8", Resources.Load<Sprite>("Sprites/WhiteCards/D8"));
-        cardSpriteMap.Add("Diamond9", Resources.Load<Sprite>("Sprites/WhiteCards/D9"));
-        cardSpriteMap.Add("Diamond10", Resources.Load<Sprite>("Sprites/WhiteCards/D10"));
-        cardSpriteMap.Add("DiamondJ", Resources.Load<Sprite>("Sprites/WhiteCards/DJ"));
-        cardSpriteMap.Add("DiamondQ", Resources.Load<Sprite>("Sprites/WhiteCards/DQ"));
-        cardSpriteMap.Add("DiamondK", Resources.Load<Sprite>("Sprites/WhiteCards/DK"));
+        cardSpriteMap[14] = Resources.Load<Sprite>("Sprites/WhiteCards/DA");
+        cardSpriteMap[15] = Resources.Load<Sprite>("Sprites/WhiteCards/D2");
+        cardSpriteMap[16] = Resources.Load<Sprite>("Sprites/WhiteCards/D3");
+        cardSpriteMap[17] = Resources.Load<Sprite>("Sprites/WhiteCards/D4");
+        cardSpriteMap[18] = Resources.Load<Sprite>("Sprites/WhiteCards/D5");
+        cardSpriteMap[19] = Resources.Load<Sprite>("Sprites/WhiteCards/D6");
+        cardSpriteMap[20] = Resources.Load<Sprite>("Sprites/WhiteCards/D7");
+        cardSpriteMap[21] = Resources.Load<Sprite>("Sprites/WhiteCards/D8");
+        cardSpriteMap[22] = Resources.Load<Sprite>("Sprites/WhiteCards/D9");
+        cardSpriteMap[23] = Resources.Load<Sprite>("Sprites/WhiteCards/D10");
+        cardSpriteMap[24] = Resources.Load<Sprite>("Sprites/WhiteCards/DJ");
+        cardSpriteMap[25] = Resources.Load<Sprite>("Sprites/WhiteCards/DQ");
+        cardSpriteMap[26] = Resources.Load<Sprite>("Sprites/WhiteCards/DK");
+
+        // SUIT: HEART (H)
+        cardSpriteMap[27] = Resources.Load<Sprite>("Sprites/WhiteCards/HA");
+        cardSpriteMap[28] = Resources.Load<Sprite>("Sprites/WhiteCards/H2");
+        cardSpriteMap[29] = Resources.Load<Sprite>("Sprites/WhiteCards/H3");
+        cardSpriteMap[30] = Resources.Load<Sprite>("Sprites/WhiteCards/H4");
+        cardSpriteMap[31] = Resources.Load<Sprite>("Sprites/WhiteCards/H5");
+        cardSpriteMap[32] = Resources.Load<Sprite>("Sprites/WhiteCards/H6");
+        cardSpriteMap[33] = Resources.Load<Sprite>("Sprites/WhiteCards/H7");
+        cardSpriteMap[34] = Resources.Load<Sprite>("Sprites/WhiteCards/H8");
+        cardSpriteMap[35] = Resources.Load<Sprite>("Sprites/WhiteCards/H9");
+        cardSpriteMap[36] = Resources.Load<Sprite>("Sprites/WhiteCards/H10");
+        cardSpriteMap[37] = Resources.Load<Sprite>("Sprites/WhiteCards/HJ");
+        cardSpriteMap[38] = Resources.Load<Sprite>("Sprites/WhiteCards/HQ");
+        cardSpriteMap[39] = Resources.Load<Sprite>("Sprites/WhiteCards/HK");
 
         // SUIT: SPADE (S)
-        cardSpriteMap.Add("SpadeA", Resources.Load<Sprite>("Sprites/WhiteCards/SA"));
-        cardSpriteMap.Add("Spade2", Resources.Load<Sprite>("Sprites/WhiteCards/S2"));
-        cardSpriteMap.Add("Spade3", Resources.Load<Sprite>("Sprites/WhiteCards/S3"));
-        cardSpriteMap.Add("Spade4", Resources.Load<Sprite>("Sprites/WhiteCards/S4"));
-        cardSpriteMap.Add("Spade5", Resources.Load<Sprite>("Sprites/WhiteCards/S5"));
-        cardSpriteMap.Add("Spade6", Resources.Load<Sprite>("Sprites/WhiteCards/S6"));
-        cardSpriteMap.Add("Spade7", Resources.Load<Sprite>("Sprites/WhiteCards/S7"));
-        cardSpriteMap.Add("Spade8", Resources.Load<Sprite>("Sprites/WhiteCards/S8"));
-        cardSpriteMap.Add("Spade9", Resources.Load<Sprite>("Sprites/WhiteCards/S9"));
-        cardSpriteMap.Add("Spade10", Resources.Load<Sprite>("Sprites/WhiteCards/S10"));
-        cardSpriteMap.Add("SpadeJ", Resources.Load<Sprite>("Sprites/WhiteCards/SJ"));
-        cardSpriteMap.Add("SpadeQ", Resources.Load<Sprite>("Sprites/WhiteCards/SQ"));
-        cardSpriteMap.Add("SpadeK", Resources.Load<Sprite>("Sprites/WhiteCards/SK"));
+        cardSpriteMap[40] = Resources.Load<Sprite>("Sprites/WhiteCards/SA");
+        cardSpriteMap[41] = Resources.Load<Sprite>("Sprites/WhiteCards/S2");
+        cardSpriteMap[42] = Resources.Load<Sprite>("Sprites/WhiteCards/S3");
+        cardSpriteMap[43] = Resources.Load<Sprite>("Sprites/WhiteCards/S4");
+        cardSpriteMap[44] = Resources.Load<Sprite>("Sprites/WhiteCards/S5");
+        cardSpriteMap[45] = Resources.Load<Sprite>("Sprites/WhiteCards/S6");
+        cardSpriteMap[46] = Resources.Load<Sprite>("Sprites/WhiteCards/S7");
+        cardSpriteMap[47] = Resources.Load<Sprite>("Sprites/WhiteCards/S8");
+        cardSpriteMap[48] = Resources.Load<Sprite>("Sprites/WhiteCards/S9");
+        cardSpriteMap[49] = Resources.Load<Sprite>("Sprites/WhiteCards/S10");
+        cardSpriteMap[50] = Resources.Load<Sprite>("Sprites/WhiteCards/SJ");
+        cardSpriteMap[51] = Resources.Load<Sprite>("Sprites/WhiteCards/SQ");
+        cardSpriteMap[52] = Resources.Load<Sprite>("Sprites/WhiteCards/SK");
+
+
     }
 
     // When coding func to get sprite by 1-52, do math on A to get its val to be 1/11,
     // and set any (x % 12) > 10 to be 10.
-    
+
     Sprite GetCardByNum(int num)
     {
-        // NUM MUST BE BETWEEN 1-52, OTHERWISE RETURN BACKSPRITE
-        if (num < 1 || num > 52)
-        {
-            Debug.LogWarning("Card number out of range. Returning back sprite.");
-            return backSprite;
-        }
-        string key = cardNumToKeyMap[num];
-        Sprite cardSprite = cardSpriteMap[key];
-        return cardSprite;
+        return cardSpriteMap[num];
     }
 
 }
