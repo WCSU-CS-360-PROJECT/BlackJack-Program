@@ -506,6 +506,7 @@ public class BlackjackGameController : MonoBehaviour
                     // Player blackjack pays 3:2
                     int payout = Mathf.FloorToInt(bet * 1.5f);
                     playerController.Model.RecordWin(payout);
+                    playerController.Model.RecordLoss(playerController.InsuranceBet); // lose insurance if any
                     sb.AppendLine($"{handLabel}BLACKJACK! You win {payout} B-Bucks (3:2).");
                 }
                 else // dealerBJ && !playerBJ
@@ -522,25 +523,46 @@ public class BlackjackGameController : MonoBehaviour
             if (hand.IsBust())
             {
                 playerController.Model.RecordLoss(bet);
+                if (!dealerBJ) { bet += playerController.InsuranceBet; } // lose insurance if any
                 sb.AppendLine($"{handLabel}Bust ({playerTotal}). You lose {bet} B-Bucks.");
             }
             else if (dealerBust)
             {
+                if (playerController.InsuranceBet > 0 && !dealerBJ) {
+                    playerController.Model.RecordLoss(playerController.InsuranceBet); // lose insurance if any
+                    sb.AppendLine($"Insurance bet ({playerController.InsuranceBet}) lost.");
+                }
                 playerController.Model.RecordWin(bet);
                 sb.AppendLine($"{handLabel}Dealer busts ({dealerTotal}). You win {bet} B-Bucks.");
+
             }
             else if (playerTotal > dealerTotal)
             {
                 playerController.Model.RecordWin(bet);
+                if (playerController.InsuranceBet > 0 && !dealerBJ)
+                {
+                    playerController.Model.RecordLoss(playerController.InsuranceBet); // lose insurance if any
+                    sb.AppendLine($"Insurance bet ({playerController.InsuranceBet}) lost.");
+                }
                 sb.AppendLine($"{handLabel}You win {bet} B-Bucks. {playerTotal} vs {dealerTotal}.");
             }
             else if (playerTotal < dealerTotal)
             {
+                if (playerController.InsuranceBet > 0 && !dealerBJ)
+                {
+                    playerController.Model.RecordLoss(playerController.InsuranceBet); // lose insurance if any
+                    sb.AppendLine($"Insurance bet ({playerController.InsuranceBet}) lost.");
+                }
                 playerController.Model.RecordLoss(bet);
                 sb.AppendLine($"{handLabel}You lose {bet} B-Bucks. {playerTotal} vs {dealerTotal}.");
             }
             else
             {
+                if (playerController.InsuranceBet > 0 && !dealerBJ)
+                {
+                    playerController.Model.RecordLoss(playerController.InsuranceBet); // lose insurance if any
+                    sb.AppendLine($"Insurance bet ({playerController.InsuranceBet}) lost.");
+                }
                 playerController.Model.RecordPush();
                 sb.AppendLine($"{handLabel}Push at {playerTotal}.");
             }
